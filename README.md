@@ -12,6 +12,7 @@
 5. Exibir um placar ao final de cada partida entre os mesmos jogadores.
 - Exemplo: (jogador1) 2 x 0 (jogador2)
 
+
 6. Perguntar se os mesmos jogadores querem jogar novamente.
 - Se for empate mensagem genérica "Jogar novamente? "
 - Se houver um vencedor mensagem
