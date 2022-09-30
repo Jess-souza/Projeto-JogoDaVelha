@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87d60fd1-0608-4b60-8539-e4c5228a32ec" name="Changes" comment="">
+    <list default="true" id="87d60fd1-0608-4b60-8539-e4c5228a32ec" name="Changes" comment="Inclusão placar e laço para jogar novamente.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/JogoDaVelha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/JogoDaVelha.java" afterDir="false" />
     </list>
@@ -100,7 +100,7 @@
       <updated>1664404933337</updated>
       <workItem from="1664404934929" duration="1182000" />
       <workItem from="1664495406000" duration="3809000" />
-      <workItem from="1664542915818" duration="3646000" />
+      <workItem from="1664542915818" duration="4426000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1664405013964</created>
@@ -130,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664508337228</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Inclusão placar e laço para jogar novamente.">
+      <created>1664546679858</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664546679858</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,6 +158,7 @@
     <MESSAGE value="Init commit" />
     <MESSAGE value="Inclusão Readme" />
     <MESSAGE value="Ajuste na classe, inclusão de regras" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajuste na classe, inclusão de regras" />
+    <MESSAGE value="Inclusão placar e laço para jogar novamente." />
+    <option name="LAST_COMMIT_MESSAGE" value="Inclusão placar e laço para jogar novamente." />
   </component>
 </project>

@@ -152,12 +152,17 @@ public class JogoDaVelha {
             jogo.executar();
             System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
             int resposta = sc.nextInt();
+
+            while (resposta!=1 || resposta!=2) {
+                System.out.println("Resposta inválida. Digite uma resposta válida, por favor");
+                System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
+                resposta = sc.nextInt();
+            }
+
             if (resposta == 1 ) {
                 jogarNovamente = true;
             } else if (resposta == 2) {
                 jogarNovamente = false;
-            } else {
-                System.out.println("Resposta inválida.");
             }
         } while (jogarNovamente == true);
     }
