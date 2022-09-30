@@ -4,6 +4,8 @@ public class JogoDaVelha {
     private int jogador = 1;
 
     private int[][] tabuleiro = new int[3][3];
+    int placarJogador1 = 0;
+    int placarJogador2 = 0;
 
     public boolean jogar(int x, int y) {
         if ((x < 0) || (x > 2) || (y < 0) || (y > 2)) {
@@ -127,18 +129,37 @@ public class JogoDaVelha {
         System.out.println(this);
         //   System.out.println(vencedor());
         if (vencedor() > 0 && vencedor() == 2) {
-            System.out.printf("%s foi o ganhador da rodada", jogador2);
+            System.out.printf("%s foi o(a) ganhador(a) da rodada\n", jogador2);
+            placarJogador2 += 1;
         } else if (vencedor() > 0 && vencedor() == 1) {
-            System.out.printf("%s foi o ganhador da rodada", jogador1);
+            System.out.printf("%s foi o(a) ganhador(a) da rodada\n", jogador1);
+            placarJogador1 +=1;
         } else {
             System.out.println("A rodada encerrou com um empate!");
         }
+        System.out.printf("%s possui %d pontos!\n", jogador1, placarJogador1);
+        System.out.printf("%s possui %d pontos!\n", jogador2, placarJogador2);
+
     }
 
+
     public static void main(String[] args) {
-        System.out.println("Bem vind@ ao jogo da velha!");
+        System.out.println("-----------Bem vind@ ao jogo da velha!--------");
         JogoDaVelha jogo = new JogoDaVelha();
-        jogo.executar();
+        boolean jogarNovamente = true;
+        Scanner sc = new Scanner(System.in);
+        do {
+            jogo.executar();
+            System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
+            int resposta = sc.nextInt();
+            if (resposta == 1 ) {
+                jogarNovamente = true;
+            } else if (resposta == 2) {
+                jogarNovamente = false;
+            } else {
+                System.out.println("Resposta inválida.");
+            }
+        } while (jogarNovamente == true);
     }
 }
 
