@@ -137,7 +137,6 @@ public class JogoDaVelha {
 
     public static void main(String[] args) {
         System.out.println("Bem vind@ ao jogo da velha!");
-
         JogoDaVelha jogo = new JogoDaVelha();
         jogo.executar();
     }
