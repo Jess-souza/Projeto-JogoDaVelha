@@ -73,7 +73,9 @@
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
@@ -101,6 +103,7 @@
       <workItem from="1664404934929" duration="1182000" />
       <workItem from="1664495406000" duration="3809000" />
       <workItem from="1664542915818" duration="4426000" />
+      <workItem from="1664665522628" duration="11813000" />
     </task>
     <task id="LOCAL-00001" summary="Init commit">
       <created>1664405013964</created>
