@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JogoDaVelha {
@@ -81,13 +82,13 @@ public class JogoDaVelha {
             for (int coluna = 0; coluna < 3; coluna++) {
                 switch (tabuleiro[coluna][linha]) {
                     case 0:
-                        out += "_ ";
+                        out += "| _ |";
                         break;
                     case 1:
-                        out += "O ";
+                        out += "| O |";
                         break;
                     case 2:
-                        out += "X ";
+                        out += "| X |";
                         break;
                 }
             }
@@ -114,6 +115,7 @@ public class JogoDaVelha {
     public void executar() {
         jogadores();
         Scanner entrada = new Scanner(System.in);
+        boolean validador = true;
         while (vencedor() == 0) {
             System.out.println(this);
             if (jogador == 1) {
@@ -121,13 +123,31 @@ public class JogoDaVelha {
             } else {
                 System.out.println("Jogador: " + jogadores[1]);
             }
-            System.out.print("Coluna: ");
-            int coluna = entrada.nextInt();
-            System.out.print("Linha: ");
-            int linha = entrada.nextInt();
-            if (!jogar(coluna, linha)) {
-                System.out.println("Jogada invalida, tente novamente...");
+            while (validador = true) {
+                try {
+                    System.out.print("Coluna: ");
+                    int coluna = entrada.nextInt();
+                    System.out.print("Linha: ");
+                    int linha = entrada.nextInt();
+                    if (!jogar(coluna, linha)) {
+                        System.out.println("Jogada invalida, tente novamente...");
+                    }
+//                    validador = false;
+                    break;
+                } catch (InputMismatchException e) {
+                    System.out.println("Por favor, digite um número válido!");
+                    entrada.nextLine();
+                }
+                    System.out.print("Coluna: ");
+                    int coluna = entrada.nextInt();
+                    System.out.print("Linha: ");
+                    int linha = entrada.nextInt();
+                    if (!jogar(coluna, linha)) {
+                        System.out.println("Jogada invalida, tente novamente...");
+                }
+                validador = false;
             }
+
         }
 
         System.out.println(this);
@@ -147,27 +167,36 @@ public class JogoDaVelha {
 
     public static void main(String[] args) {
         System.out.println("-----------Bem vind@ ao jogo da velha!-----------");
+        System.out.println("Instruções: nossas colunas e linhas iniciam do número 0, logo, se você deseja jogar na primeira" +
+                " coluna e primeira linha deve digitar 0 para coluna e 0 para linha.");
         JogoDaVelha jogo = new JogoDaVelha();
         jogo.executar();
         Scanner jogar = new Scanner(System.in);
         boolean jogarNovamente = true;
         do {
             System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
-            int resposta = jogar.nextInt();
-            switch (resposta) {
-                case 1:
-                    jogo.executar();
-                    break;
-                case 2:
-                    jogarNovamente = false;
-                    break;
-                default:
-                    System.out.println("Resposta inválida. Digite uma resposta válida, por favor");
-                    System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
-                    resposta = jogar.nextInt();
-                    break;
+            try {
+                int resposta = jogar.nextInt();
+
+                switch (resposta) {
+                    case 1:
+                        jogo.executar();
+                        break;
+                    case 2:
+                        jogarNovamente = false;
+                        break;
+                    default:
+                        System.out.println("Resposta inválida. Digite uma resposta válida, por favor");
+                        System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
+                        resposta = jogar.nextInt();
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Resposta inválida, o jogo será encerrado!");
+                return;
             }
         } while (jogarNovamente == true);
+        System.out.println("Obrigada por jogar nosso jogo!");
     }
 }
 
