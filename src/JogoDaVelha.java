@@ -2,12 +2,12 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class JogoDaVelha {
-    private int jogador = 1;
-    private int[][] tabuleiro = new int[3][3];
+    private static int jogador = 1;
+    private static int[][] tabuleiro = new int[3][3];
     public String[] jogadores = new String[2];
     int placarJogador1, placarJogador2 = 0;
 
-    public boolean jogar(int x, int y) {
+    public static boolean jogar(int x, int y) {
         if ((x < 0) || (x > 2) || (y < 0) || (y > 2)) {
             return false;
         }
@@ -112,6 +112,29 @@ public class JogoDaVelha {
         }
     }
 
+
+    public static int[] recebeValor() {
+        Scanner entrada = new Scanner(System.in);
+        int linha = 0;
+        int coluna = 0;
+        try {
+            System.out.println("Coluna: ");
+            coluna = entrada.nextInt();
+            System.out.println("Linha: ");
+            linha = entrada.nextInt();
+            if (!jogar(coluna, linha)) {
+                System.out.println("Jogada invalida, tente novamente...");
+            }
+            int valores [] = {coluna, linha};
+            return valores;
+        } catch (InputMismatchException e) {
+            System.out.println("Por favor, digite um número válido");
+            recebeValor();
+        }
+        return new int[]{0};
+    }
+
+
     public void executar() {
         jogadores();
         Scanner entrada = new Scanner(System.in);
@@ -123,31 +146,7 @@ public class JogoDaVelha {
             } else {
                 System.out.println("Jogador: " + jogadores[1]);
             }
-            while (validador = true) {
-                try {
-                    System.out.print("Coluna: ");
-                    int coluna = entrada.nextInt();
-                    System.out.print("Linha: ");
-                    int linha = entrada.nextInt();
-                    if (!jogar(coluna, linha)) {
-                        System.out.println("Jogada invalida, tente novamente...");
-                    }
-//                    validador = false;
-                    break;
-                } catch (InputMismatchException e) {
-                    System.out.println("Por favor, digite um número válido!");
-                    entrada.nextLine();
-                }
-                    System.out.print("Coluna: ");
-                    int coluna = entrada.nextInt();
-                    System.out.print("Linha: ");
-                    int linha = entrada.nextInt();
-                    if (!jogar(coluna, linha)) {
-                        System.out.println("Jogada invalida, tente novamente...");
-                }
-                validador = false;
-            }
-
+           recebeValor();
         }
 
         System.out.println(this);
@@ -174,7 +173,11 @@ public class JogoDaVelha {
         Scanner jogar = new Scanner(System.in);
         boolean jogarNovamente = true;
         do {
-            System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
+            if (jogo.placarJogador1 == jogo.placarJogador2) {
+                System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
+            } else if (jogo.placarJogador1 > jogo.placarJogador2 || jogo.placarJogador2 > jogo.placarJogador1) {
+                System.out.println("Revanhe? [1] Sim [2] Não");
+            }
             try {
                 int resposta = jogar.nextInt();
 
