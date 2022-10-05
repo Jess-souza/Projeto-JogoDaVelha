@@ -112,7 +112,6 @@ public class JogoDaVelha {
         }
     }
 
-
     public static int[] recebeValor() {
         Scanner entrada = new Scanner(System.in);
         int linha = 0;
@@ -125,7 +124,7 @@ public class JogoDaVelha {
             if (!jogar(coluna, linha)) {
                 System.out.println("Jogada invalida, tente novamente...");
             }
-            int valores [] = {coluna, linha};
+            int valores[] = {coluna, linha};
             return valores;
         } catch (InputMismatchException e) {
             System.out.println("Por favor, digite um número válido");
@@ -133,7 +132,6 @@ public class JogoDaVelha {
         }
         return new int[]{0};
     }
-
 
     public void executar() {
         jogadores();
@@ -146,9 +144,8 @@ public class JogoDaVelha {
             } else {
                 System.out.println("Jogador: " + jogadores[1]);
             }
-           recebeValor();
+            recebeValor();
         }
-
         System.out.println(this);
         if (vencedor() > 0 && vencedor() == 2) {
             System.out.printf("%s foi o(a) ganhador(a) da rodada\n", jogadores[1]);
@@ -163,11 +160,9 @@ public class JogoDaVelha {
         System.out.printf("%s possui %d pontos!\n", jogadores[1], placarJogador2);
     }
 
-
     public static void main(String[] args) {
         System.out.println("-----------Bem vind@ ao jogo da velha!-----------");
-        System.out.println("Instruções: nossas colunas e linhas iniciam do número 0, logo, se você deseja jogar na primeira" +
-                " coluna e primeira linha deve digitar 0 para coluna e 0 para linha.");
+        System.err.println("Instruções: As colunas e linhas são representadas pelos números 0-1-2.\nPara jogar na 1ª coluna e 1ª linha, digitar 0 para coluna e 0 para linha.");
         JogoDaVelha jogo = new JogoDaVelha();
         jogo.executar();
         Scanner jogar = new Scanner(System.in);
@@ -176,7 +171,7 @@ public class JogoDaVelha {
             if (jogo.placarJogador1 == jogo.placarJogador2) {
                 System.out.println("Deseja jogar novamente? [1] Sim [2] Não");
             } else if (jogo.placarJogador1 > jogo.placarJogador2 || jogo.placarJogador2 > jogo.placarJogador1) {
-                System.out.println("Revanhe? [1] Sim [2] Não");
+                System.out.println("Revanche? [1] Sim [2] Não");
             }
             try {
                 int resposta = jogar.nextInt();
@@ -196,10 +191,10 @@ public class JogoDaVelha {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Resposta inválida, o jogo será encerrado!");
+                System.out.println("Obrigada por jogar!");
                 return;
             }
         } while (jogarNovamente == true);
         System.out.println("Obrigada por jogar nosso jogo!");
     }
 }
-
